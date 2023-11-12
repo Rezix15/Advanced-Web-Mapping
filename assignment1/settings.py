@@ -14,7 +14,6 @@ import socket
 from pathlib import Path
 from geo_app import docker_config
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-with open('{BASE_DIR}/secret_key.txt') as f:
+with open(BASE_DIR / "secret_key.txt") as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -149,7 +148,8 @@ if socket.gethostname() == "LAPTOP-OPL2V68C":
     DATABASES["default"]["HOST"] = "localhost"
     DATABASES["default"]["PORT"] = docker_config.POSTGIS_PORT
 else:
-    DATABASES["default"]["HOST"] = f"{docker_config.PROJECT_NAME}-postgis"
+    # DATABASES["default"]["HOST"] = f"{docker_config.PROJECT_NAME}-postgis"
+    DATABASES["default"]["HOST"] = "lab-awm2023"
     DATABASES["default"]["PORT"] = str(5432)
 
 # Set DEPLOY_SECURE to True only for LIVE deployment
