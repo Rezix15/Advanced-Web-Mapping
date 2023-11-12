@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os.path
 import socket
 from pathlib import Path
-from assignment1.geo_app import docker_config
+from geo_app import docker_config
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
